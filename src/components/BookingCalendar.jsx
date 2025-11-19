@@ -112,13 +112,13 @@ export default function BookingCalendar({ onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-white flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-gray-200"
       >
-        <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
+        <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10 shadow-sm">
           <div>
             <h2 className="text-2xl font-bold text-dark">Programare Online</h2>
             <div className="flex gap-2 mt-2">
@@ -132,10 +132,10 @@ export default function BookingCalendar({ onClose }) {
               ))}
             </div>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-dark text-2xl">&times;</button>
+          <button onClick={onClose} className="text-gray-500 hover:text-dark text-3xl font-bold leading-none">&times;</button>
         </div>
 
-        <div className="p-6">
+        <div className="p-6 bg-white">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
