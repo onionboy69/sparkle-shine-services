@@ -87,7 +87,7 @@ function App() {
       name: "Maria P.",
       location: "Târgoviște",
       service: "Igienizare Saltea",
-      text: "Am avut saltea murdară și cu miros neplăcut de la animale. După Curățenie Pro, arată ca nouă! Echipa a fost foarte profesionistă, procesul transparent, iar rezultatul excepțional. Mi-au explicat pas cu pas ce fac. Recomand cu încredere și voi da referral la prieteni pentru reducerea de 20%!",
+      text: "Am avut saltea murdară și cu miros neplăcut de la animale. După StreetLab Cleaners, arată ca nouă! Echipa a fost foarte profesionistă, procesul transparent, iar rezultatul excepțional. Mi-au explicat pas cu pas ce fac. Recomand cu încredere și voi da referral la prieteni pentru reducerea de 20%!",
       rating: 5
     },
     {
@@ -133,7 +133,7 @@ function App() {
       {/* Header/Navigation */}
       <header className="fixed top-0 w-full bg-white shadow-md z-50">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-gradient">Curățenie Pro</div>
+          <div className="text-2xl font-bold text-gradient">StreetLab Cleaners</div>
           <div className="hidden md:flex space-x-6">
             <a href="#servicii" className="text-dark hover:text-primary transition">Servicii</a>
             <a href="#preturi" className="text-dark hover:text-primary transition">Prețuri</a>
@@ -1040,7 +1040,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-bold text-gradient mb-4">Curățenie Pro</h3>
+              <h3 className="text-2xl font-bold text-gradient mb-4">StreetLab Cleaners</h3>
               <p className="text-gray-400">Servicii profesionale de curățenie și igienizare în Târgoviște și Dâmbovița.</p>
             </div>
             <div>
@@ -1057,12 +1057,12 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li>Târgoviște, Dâmbovița</li>
                 <li>+40 123 456 789</li>
-                <li>contact@curateniepr o.ro</li>
+                <li>contact@streetlabcleaners.ro</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Curățenie Pro. Toate drepturile rezervate.</p>
+            <p>&copy; 2025 StreetLab Cleaners. Toate drepturile rezervate.</p>
           </div>
         </div>
       </footer>

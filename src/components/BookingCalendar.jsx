@@ -112,11 +112,11 @@ export default function BookingCalendar({ onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-gray-100"
       >
         <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
           <div>
@@ -178,7 +178,7 @@ export default function BookingCalendar({ onClose }) {
                 </div>
 
                 {selectedServices.length > 0 && (
-                  <div className="bg-accent p-4 rounded-xl mb-4">
+                  <div className="bg-green-100 border-2 border-green-300 p-4 rounded-xl mb-4">
                     <p className="text-lg font-semibold text-dark">
                       Estimat: {formatDuration(totalDuration)} | Total: ~{estimatedCost} lei
                     </p>
