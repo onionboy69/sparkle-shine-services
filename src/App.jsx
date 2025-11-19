@@ -75,12 +75,21 @@ function App() {
   const [activeFAQ, setActiveFAQ] = useState(null)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [showBooking, setShowBooking] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     service: '',
     message: ''
   })
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const testimonials = [
     {
@@ -140,14 +149,24 @@ function App() {
             <a href="#despre" className="text-dark hover:text-primary transition">Despre Noi</a>
             <a href="#contact" className="text-dark hover:text-primary transition">Contact</a>
           </div>
-          <a href="tel:+40123456789" className="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition flex items-center gap-2">
-            <FaPhone /> Sună Acum
+          <a 
+            href="tel:+40123456789" 
+            className="bg-gradient-to-r from-orange to-primary text-white px-8 py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 font-semibold"
+          >
+            <FaPhone className="animate-pulse" /> Sună Acum
           </a>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 gradient-bg-diagonal overflow-hidden">
+      <section 
+        className="relative pt-32 pb-20 gradient-bg-diagonal overflow-hidden transition-all duration-300"
+        style={{
+          opacity: Math.max(0, 1 - scrollY / 500),
+          filter: `blur(${Math.min(scrollY / 100, 10)}px)`,
+          transform: `translateY(-${scrollY * 0.5}px)`
+        }}
+      >
         <FloatingBubbles />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
