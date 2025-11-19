@@ -16,6 +16,36 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+  }
+  
+  .react-calendar {
+    background: #374151;
+    color: #e5e7eb;
+  }
+  
+  .react-calendar__tile {
+    background: #374151;
+    color: #e5e7eb;
+  }
+  
+  .react-calendar__tile:enabled:hover {
+    background: #4B5563;
+  }
+  
+  .react-calendar__navigation button {
+    color: #e5e7eb;
+  }
+  
+  .react-calendar__month-view__weekdays {
+    color: #9CA3AF;
+  }
 }
 
 @layer utilities {
