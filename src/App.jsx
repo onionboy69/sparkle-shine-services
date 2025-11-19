@@ -140,18 +140,20 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header/Navigation */}
-      <header className="fixed top-0 w-full bg-white shadow-md z-50">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-gradient">StreetLab Cleaners</div>
-          <div className="hidden md:flex space-x-6">
-            <a href="#servicii" className="text-dark hover:text-primary transition">Servicii</a>
-            <a href="#preturi" className="text-dark hover:text-primary transition">Prețuri</a>
-            <a href="#despre" className="text-dark hover:text-primary transition">Despre Noi</a>
-            <a href="#contact" className="text-dark hover:text-primary transition">Contact</a>
+      <header className="fixed top-0 w-full z-50 py-4">
+        <nav className="container mx-auto px-4 flex justify-between items-center">
+          <div className="text-2xl font-bold text-gradient bg-white px-6 py-3 rounded-full shadow-lg">
+            StreetLab Cleaners
+          </div>
+          <div className="hidden md:flex gap-2">
+            <a href="#servicii" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Servicii</a>
+            <a href="#preturi" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Prețuri</a>
+            <a href="#despre" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Despre Noi</a>
+            <a href="#contact" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Contact</a>
           </div>
           <a 
             href="tel:+40123456789" 
-            className="bg-gradient-to-r from-orange to-primary text-white px-8 py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 font-semibold"
+            className="bg-gradient-to-r from-orange to-primary text-white px-8 py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 font-semibold shadow-lg"
           >
             <FaPhone className="animate-pulse" /> Sună Acum
           </a>
