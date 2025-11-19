@@ -1,0 +1,266 @@
+Redesignează website-ul de curățenie profesională cu vizual modern, colorat și 
+animat. Fă următoarele UPGRADE-uri MAJORE:
+
+## 1. VISUAL & DESIGN UPGRADES
+
+### Color Palette (Actualizare de la albastru monoton):
+- **Culoare Primară:** Albastru vibrant #2563EB (keep, dar folosit strategic)
+- **Culoare Secundară:** Verde smarald #10B981 (accent "curat/proaspăt")
+- **Accent Warm:** Portocaliu coral #FF6B35 (CTA buttons, urgență)
+- **Neutral light:** Gri deschis #F8FAFB (backgrounds)
+- **Text dark:** Negru #1F2937 cu opacity variable
+
+### Hero Section (COMPLETE REDESIGN):
+- Background: Gradient diagonal albastru → verde (165deg)
+- Adaugă ANIMATED background elements:
+  - Subtle floating bubbles (opacity 0.1, infinite rotation)
+  - Wave pattern animation (SVG, bottom edge)
+  - Parallax effect pe scroll
+- Text animation: Fade-in staggered (h1 → p → buttons, 200ms delay)
+- CTA buttons: 
+  - "Solicită Ofertă" → Gradient orange-red, glow animation on hover
+  - "Vezi Prețurile" → Outline style, smooth border color change
+
+### Service Cards (Grid Servicii) - ANIMATED:
+- Hover effect: 
+  - Scale: 102% (subtle lift)
+  - Shadow: Expand to 20px blur
+  - Icon rotate 360° (0.6s ease)
+- Background gradient shift on hover (albastru → verde)
+- Price badge animated: Bounce scale 0.8 → 1.2 (infinite)
+- Underline bar animate: 0% → 100% width (from left)
+
+### "Cum Lucrăm?" Section (4 Steps) - TIMELINE ANIMATED:
+- Vertical/horizontal timeline design
+- Step numbers: Rotate in on scroll (3D flip effect, 0.8s)
+- Icons: Bounce up animation (infinite, staggered)
+- Connecting line: Animate "draw" from left to right (SVG stroke-dasharray)
+- On mobile: Transform to vertical stack
+
+### Testimonials Carousel:
+- Auto-rotate every 5s
+- Pause on hover
+- Fade-in animation staggered (3 cards visible)
+- Star rating animation: Stars fill with gradient (0 → 5, 1s on load)
+- Quote icon pulse animation (subtle)
+
+### "Rezultate în Numere" Section (NEW):
+- 4 stat cards cu animated counters:
+  - "500+ Clienți" (counter 0→500, 2s)
+  - "10,000+ Ore Serviciu" (counter 0→10000, 2s)
+  - "98% Rating ⭐⭐⭐⭐⭐" (star fill animation)
+  - "30+ Zone Deservite" (counter 0→30, 2s)
+- Progress bars animate from 0% → full on scroll visibility
+- Icons scale-in animation
+
+### Contact Section - FORM REDESIGN:
+- Animated form field focus:
+  - Underline slide effect (0 → 100% width)
+  - Label float up (translateY -20px, fontSize smaller)
+  - Input border color: gray → green/blue on focus
+- Button gradient animate on hover (angle shift 0° → 45°)
+- Success message: Confetti animation OR checkmark bounce
+
+### Navigation Bar:
+- Smooth scroll to sections (scroll-behavior: smooth)
+- Active nav item: Animated underline (slide effect)
+- Mobile: Hamburger menu → animated X (rotate 90°)
+- Sticky effect on scroll with subtle shadow
+
+---
+
+## 2. CALENDAR BOOKING SYSTEM (NEW FEATURE - CRITICAL)
+
+### Calendar Component:
+- Monthly calendar view (React Calendar sau similar)
+- Color-coded availability:
+  - Verde: Available (full capacity)
+  - Portocaliu: Limited (2-3 slots left)
+  - Roșu: FULL/Occupied (disabled, strikethrough)
+  
+### Date Selection Flow:
+1. **Step 1 - Select Services:**
+   - Multi-select checkboxes: Canapea, Saltea, Scaune, Auto, Calorifere, etc
+   - Each service shows:
+     - Icon + name
+     - Duration in minutes (45 min, 60 min, etc)
+     - Price range (150-200 lei)
+   - **Auto-calculate total duration** when services selected:
+     - Canapea 3L (60 min) + Saltea single (45 min) = 105 min total
+     - Display: "Estimat: 1h 45min | Total: ~350 lei"
+
+2. **Step 2 - Choose Date:**
+   - Calendar shows available dates (green)
+   - Unavailable dates greyed out (red)
+   - Click date → show time slots for that day
+   - Time slot animation: Fade-in cascade (0.1s stagger)
+
+3. **Step 3 - Select Time Slot:**
+   - Display 2-hour time windows (09:00-11:00, 11:00-13:00, etc)
+   - Based on total duration calculated, BLOCK required slots:
+     - User selects 09:00 for 105 min service
+     - Automatically block 09:00-10:45 (red X overlay)
+     - Next available slot: 11:00
+   - Show selected slot highlight (green background, bold)
+   - Cannot select if:
+     - Not enough consecutive slots available
+     - Already occupied
+
+4. **Step 4 - Confirmation:**
+   - Show summary:
+     - Services: Canapea 3L + Saltea single
+     - Date: 25 Nov 2025
+     - Time: 09:00 - 10:45 (1h 45min)
+     - Estimated cost: ~350 lei
+     - Location/Zone selector (dropdown)
+   - Button: "Confirmare Programare" (gradient orange-red)
+
+### Calendar Animation Details:
+- Occupied slots: Pulsing red animation (infinite subtle pulse)
+- Selected slot: Border animation (2px green border, glow effect)
+- Transitions between steps: Smooth fade (0.3s)
+- Success message after booking: Checkmark animation + color change to green
+
+### Backend Logic (Simple):
+When service selected:
+→ Calculate total_duration = sum(service.duration_minutes)
+
+When date + start_time selected:
+→ Calculate end_time = start_time + total_duration
+→ Check if [start_time, end_time] interval is FREE
+→ If YES: Show available, IF NO: Show error + suggest next available
+
+Color calendar slots:
+→ IF free slots >= required duration → GREEN
+→ IF 1-2 slots free → ORANGE (limited)
+→ IF 0 slots free OR not enough consecutive → RED
+
+text
+
+---
+
+## 3. OVERALL LAYOUT OPTIMIZATION
+
+### Spacing & Hierarchy:
+- Sections: 60px padding top/bottom (desktop), 40px mobile
+- Max-width container: 1200px (centered)
+- Card gaps: 24px (desktop), 16px (tablet), 12px (mobile)
+- Typography: Consistent scale (h1: 48px, h2: 32px, h3: 24px, body: 16px)
+
+### Mobile Optimization:
+- Full-width on <768px
+- Stacked layout (cards 100% width)
+- Calendar: Swipe navigation (← →)
+- Form fields: Full width with bigger touch targets (48px min height)
+- Hamburger menu: Slide-in from left (0.3s animation)
+
+### Animations Principles (Subtle, Professional):
+- Duration: 300-800ms (nu prea rapid, nu prea lent)
+- Easing: cubic-bezier(0.16, 1, 0.3, 1) - "ease-out" smooth
+- On scroll: Trigger on element visibility (Intersection Observer)
+- Hover: No animation > 100ms (snap on hover effects)
+- Loading states: Skeleton screens cu pulse animation
+
+---
+
+## 4. SPECIFIC TEXT/CONTENT TWEAKS
+
+### Hero Tagline (Make it punch):
+**Current:** "Rezultate Garantate"
+**Better:** "De la Murdar la Impecabil în 2-3 Ore ✨"
+
+### Feature Badges (Add if missing):
+- ⚡ Răspuns <30 min
+- 📍 Deplasare Inclusă
+- ✓ 100% Satisfacție Garantată
+- 🔒 Asigurare Responsabilitate Civară
+
+### CTA Copy (Urgency + Benefit):
+**OLD:** "Solicită Ofertă"
+**NEW:** "Cere Ofertă Gratuită - Răspunsuri <30 min"
+
+**OLD:** "Vezi Prețurile"
+**NEW:** "Alege Servicii & Programează Instant"
+
+---
+
+## 5. ANIMATION KEYFRAMES (Copy-paste ready)
+
+/* Floating bubbles background */
+@keyframes float {
+0%, 100% { transform: translateY(0px) rotate(0deg); }
+50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Pulse effect for occupied slots */
+@keyframes pulse-red {
+0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+}
+
+/* Glow on CTA buttons */
+@keyframes glow {
+0%, 100% { box-shadow: 0 0 5px rgba(255, 107, 53, 0.5); }
+50% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.8); }
+}
+
+/* Counter animation */
+@keyframes counter-spin {
+0% { opacity: 0; transform: rotateY(-90deg); }
+100% { opacity: 1; transform: rotateY(0deg); }
+}
+
+/* Staggered fade-in */
+.fade-in-stagger {
+animation: fadeInUp 0.6s ease-out;
+animation-fill-mode: both;
+}
+.fade-in-stagger:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-stagger:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-stagger:nth-child(3) { animation-delay: 0.3s; }
+
+text
+
+---
+
+## 6. CHECKLIST FINAL
+
+✓ Color scheme updated (alb + verde + portocaliu)
+✓ Hero section animated gradient + floating effects
+✓ Service cards cu hover animations
+✓ "Cum Lucrăm" timeline animated
+✓ Stats section cu counters
+✓ **Calendar booking FULLY FUNCTIONAL:**
+  ✓ Multi-select services
+  ✓ Auto-calculate duration
+  ✓ Color-coded availability (green/orange/red)
+  ✓ Block occupied time slots
+  ✓ Responsive mobile
+✓ Form animations (focus effects)
+✓ Mobile-first responsive design
+✓ Smooth scroll behavior
+✓ Performance optimized (lazy loading on images)
+✓ Accessibility (ARIA labels, focus states)
+
+---
+
+**IMPORTANT NOTES:**
+
+1. **Calendar data source:** Currently could be:
+   - Supabase (simple webhook)
+   - Firebase Realtime DB
+   - Simple JSON file updated manually
+   - Admin dashboard (simple form)
+
+2. **Booking confirmation:** Email + SMS notification
+   - Customer receives: "Programarea confirmată pentru 25 Nov, 09:00"
+   - Admin receives: "PROGRAMARE NOUă: Canapea 3L + Saltea, 25 Nov 09:00, 1h45m, ~350 lei"
+
+3. **Color psychology:**
+   - Albastru = profesionalism, trust
+   - Verde = curățenie, fresh, ecological
+   - Portocaliu = urgență, action, warmth
+
+---
+
+**REZULTAT:** Site-ul va trece de la generic → **CONVERSION MACHINE** ✨

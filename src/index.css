@@ -26,16 +26,101 @@ body {
     background-clip: text;
   }
   
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
   .gradient-bg {
     background: linear-gradient(135deg, #2563EB, #10B981);
   }
+  
+  .gradient-bg-diagonal {
+    background: linear-gradient(165deg, #2563EB, #10B981);
+  }
+  
+  .gradient-orange {
+    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+  }
 
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   }
 
   .hover-lift:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
+  
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  .floating-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
 }
+
+/* React Calendar Styling */
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  padding: 1rem;
+  background: white;
+  border-radius: 1rem;
+}
+
+.react-calendar__tile {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.react-calendar__tile:enabled:hover {
+  background: #F3F4F6;
+}
+
+.react-calendar__tile--active {
+  background: #10B981 !important;
+  color: white;
+}
+
+.react-calendar__tile--now {
+  background: #DBEAFE;
+}
+
+.calendar-available {
+  background: #D1FAE5 !important;
+  border: 2px solid #10B981;
+}
+
+.calendar-limited {
+  background: #FED7AA !important;
+  border: 2px solid #F59E0B;
+}
+
+.calendar-occupied {
+  background: #FEE2E2 !important;
+  border: 2px solid #EF4444;
+  text-decoration: line-through;
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+/* Staggered animations */
+.fade-in-stagger:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-stagger:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-stagger:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-stagger:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-stagger:nth-child(5) { animation-delay: 0.5s; }
+.fade-in-stagger:nth-child(6) { animation-delay: 0.6s; }
