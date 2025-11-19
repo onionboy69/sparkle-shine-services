@@ -162,7 +162,7 @@ function App() {
 
       {/* Hero Section */}
       <section 
-        className="relative pt-32 pb-20 gradient-bg-diagonal overflow-hidden transition-all duration-300"
+        className="relative pt-32 pb-20 bg-white overflow-hidden transition-all duration-300"
         style={{
           opacity: Math.max(0, 1 - scrollY / 500),
           filter: `blur(${Math.min(scrollY / 100, 10)}px)`,
@@ -176,18 +176,18 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-white"
+              className="text-gray-700"
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-stagger"
+                className="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-stagger text-dark"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                Curățenie & Igienizare <span className="text-white drop-shadow-lg">Profesionistă</span>
+                Curățenie & Igienizare <span className="text-gradient drop-shadow-lg">Profesionistă</span>
               </motion.h1>
               <motion.h2 
-                className="text-2xl md:text-3xl font-bold mb-4 text-yellow-300 fade-in-stagger"
+                className="text-2xl md:text-3xl font-bold mb-4 text-orange-500 fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -195,7 +195,7 @@ function App() {
                 De la Murdar la Impecabil în 2-3 Ore ✨
               </motion.h2>
               <motion.p 
-                className="text-xl text-white/90 mb-4 fade-in-stagger"
+                className="text-xl text-gray-700 mb-4 fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -203,7 +203,7 @@ function App() {
                 Canapele • Saltele • Scaune • Auto • Calorifere • Spații comerciale
               </motion.p>
               <motion.p 
-                className="text-white/80 mb-8 leading-relaxed fade-in-stagger"
+                className="text-gray-600 mb-8 leading-relaxed fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -223,15 +223,15 @@ function App() {
                 >
                   <FaCalendarAlt size={20} /> Alege Servicii & Programează Instant
                 </button>
-                <a 
+                  <a 
                   href="#contact" 
-                  className="bg-white/20 backdrop-blur border-2 border-white text-white px-8 py-4 rounded-full hover:bg-white hover:text-primary transition font-semibold"
+                  className="bg-gray-100 border-2 border-gray-300 text-dark px-8 py-4 rounded-full hover:bg-gray-200 hover:border-primary transition font-semibold"
                 >
                   <FaWhatsapp className="inline mr-2" /> Cere Ofertă Gratuită
                 </a>
               </motion.div>
               <motion.div 
-                className="flex flex-wrap gap-6 text-sm text-white/90 fade-in-stagger"
+                className="flex flex-wrap gap-6 text-sm text-gray-600 fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
