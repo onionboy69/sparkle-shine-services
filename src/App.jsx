@@ -142,14 +142,14 @@ function App() {
       {/* Header/Navigation */}
       <header className="fixed top-0 w-full z-50 py-4">
         <nav className="container mx-auto px-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-gradient bg-white px-6 py-3 rounded-full shadow-lg">
+          <div className="text-3xl font-bold text-gradient bg-white px-8 py-4 rounded-full shadow-lg">
             StreetLab Cleaners
           </div>
           <div className="hidden md:flex gap-2">
-            <a href="#servicii" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Servicii</a>
-            <a href="#preturi" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Prețuri</a>
-            <a href="#despre" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Despre Noi</a>
-            <a href="#contact" className="text-dark hover:text-primary transition bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg">Contact</a>
+            <a href="#servicii" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Servicii</a>
+            <a href="#preturi" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Prețuri</a>
+            <a href="#despre" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Despre Noi</a>
+            <a href="#contact" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Contact</a>
           </div>
           <a 
             href="tel:+40123456789" 
