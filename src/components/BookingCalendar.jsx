@@ -112,11 +112,11 @@ export default function BookingCalendar({ onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-slate-900 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-white flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-gray-200"
       >
         <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
           <div>
@@ -203,26 +203,28 @@ export default function BookingCalendar({ onClose }) {
                 exit={{ opacity: 0, x: -20 }}
               >
                 <h3 className="text-xl font-bold mb-4">Alege Data</h3>
-                <Calendar
-                  onChange={setSelectedDate}
-                  value={selectedDate}
-                  minDate={new Date()}
-                  tileClassName={tileClassName}
-                  locale="ro-RO"
-                />
+                <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl">
+                  <Calendar
+                    onChange={setSelectedDate}
+                    value={selectedDate}
+                    minDate={new Date()}
+                    tileClassName={tileClassName}
+                    locale="ro-RO"
+                  />
+                </div>
 
-                <div className="mt-4 flex gap-4 text-sm">
+                <div className="mt-6 p-4 bg-gray-50 rounded-xl flex gap-4 text-sm border border-gray-200">
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 bg-green-200 border-2 border-green-500 rounded"></div>
-                    <span>Disponibil</span>
+                    <span className="font-medium">Disponibil</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 bg-orange-200 border-2 border-orange-500 rounded"></div>
-                    <span>Limitat</span>
+                    <span className="font-medium">Limitat</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 bg-red-200 border-2 border-red-500 rounded"></div>
-                    <span>Ocupat</span>
+                    <span className="font-medium">Ocupat</span>
                   </div>
                 </div>
 
