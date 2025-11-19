@@ -1,0 +1,167 @@
+Îmbunătățiți website-ul de servicii de curățenie profesională cu următoarele modificări:
+
+1. CONȚINUT STRATEGIC (Textual)
+Secțiunea Hero (titlu + subtitlu):
+Titlu PRINCIPAL: "Curățenie & Igienizare Profesionistă – Rezultate Garantate"
+Subtitlu: "Canapele • Saltele • Scaune • Auto • Calorifere • Spații comerciale – Cu aparate Kärcher profesionale"
+Text suplimentar (3-4 linii): "Specialiști în curățenie și igienizare la domiciliu cu echipamente profesionale Kärcher. Oferim servicii rapide, eficiente și cu parfum inclus, pentru ca spațiul tău să fie nu doar curat, ci perfect. Rezultate vizibile, clienti mulțumiți, garantie de satisfacție 100%."
+Secțiunea "De ce noi?" (expand cu 4 beneficii principale):
+Echipament Profesional Kärcher: "Doar aparate de ultimă generație. Rezultate vizibile și durabile."
+Rezultate + Parfum Inclus: "Rezultate imediate + miros plăcut la final, pentru un spațiu proaspăt."
+Prețuri Transparente & Clar: "Tarife clare, deplasare inclusă în zona Târgoviște + limitrofe. Fără costuri ascunse."
+Servicii Complete – Un singur contact: "Textile, auto, suprafețe dure, spații comerciale – orice nevoie de curățare în ONE call."
+Secțiunea "Cum Lucrăm":
+Adaugă DETALII mai specifice la fiecare pas:
+
+Contactare: "Sună-ne pe WhatsApp/Telefon sau completează formularul online. Răspunsuri în <30 min. Disponibil 09:00-20:00, luni-sâmbătă."
+Evaluare: "Venim la fața locului, evaluăm situația, estimăm durata și costul final. Ofertă gratuită, fără angajament."
+Curățare: "Executăm serviciul cu echipament profesional Kärcher. Proces transparent – poți urmări lucrarea."
+Finalizare: "Verificare finală + client confirmat. Satisfact? Recomandări pentru menținere. Ofertă -20% pentru referral (2 prieteni)."
+Secțiunea "Prețuri & Pachete":
+Adaugă această TABELĂ cu prețuri ACTUALIZATE (2025-2026):
+
+TEXTILE & TAPIȚERII:
+
+Canapea 2 locuri: 140-170 lei
+Canapea 3 locuri: 200-250 lei
+Colțar (4-6 locuri): 300-450 lei
+Saltea single: 130-170 lei
+Saltea matrimonială: 170-230 lei
+Fotoliu: 50-80 lei
+Scaun tapițat: 25-30 lei/buc
+Interior auto complet: 350-500 lei
+SERVICII CU ABUR:
+
+Calorifere: 25-40 lei/buc
+Baie (igienizare): 150-250 lei
+Bucătărie (igienizare): 200-300 lei
+Gresie/faianță: 12-18 lei/mp
+SERVICII SUPLIMENTARE:
+
+Tratament anti-miros: 50-80 lei
+Protecție hidrofobă: 120-200 lei
+Ozonare auto: 100-150 lei
+Ozonare cameră: 150-250 lei
+Lampă UV anti-acarieni: 40-70 lei
+PACHETE COMBO (economie 50-100 lei):
+
+Pachet "Living Curat": Canapea 3L + 2 fotolii + 4 scaune + covor mic + calorifer = 370-470 lei
+Pachet "Dormitor Fresh": Saltea matrimon. + 2 perne + covor + abur zonă pat = 270-350 lei
+Pachet "Mașină ca Nouă": Interior auto complet + plafon + plastice șterse = 370-500 lei (+ ozon +120, + protecție +150)
+Secțiunea "Zona Deservită":
+"Operăm în Târgoviște, Dâmbovița și zone limitrofe (rază 30km). Deplasare INCLUSĂ în preț. Pentru zone mai îndepărtate: contactați pentru supliment mic."
+
+Secțiunea "Testimoniale" (Adaugă text mai specific):
+Îmbunătățiți current testimonials cu:
+
+Nume COMPLET + Zona (ex: "Maria P. din Târgoviște")
+Detaliu serviciu (ex: "Saltea cărată" nu doar generic)
+Text mai lung (40-60 cuvinte, nu 20-30)
+Ofertă de recomandare la final
+EXEMPLU: "Am avut saltea murdară și cu miros. După Curățenie Pro, arată ca nouă! Proces transparent, echipă profesionistă, rezultat excelent. Recomand fără rezerve și dau referral la prieteni!"
+
+2. DESIGN & EFECTE GRAFICE ANIMATE
+Scheme de culori - UPGRADE:
+Culoare primară: Albastru profesional #2563EB (actual bun, keep)
+Culoare secundară: Verde smarald #10B981 (accent de "curat/proaspăt")
+Culoare accent 3: Gri deschis #F3F4F6 (background subtle)
+Text: Negru #1F2937 (dark mode contrast bun)
+Animații & Efecte (subtle, profesional):
+Hero Section Animations:
+
+Fade-in gradient pe text (0.8s ease)
+Subtle scale-up pe imagine hero (continuous 3s loop, 100%-105%)
+Animated underline pe CTA buttons (slide from left, 2s loop)
+Service Cards (Grid Servicii):
+
+Hover effect: Lift-up shadow (translateY -5px, shadow expand)
+Background slide color reveal (0.3s transition)
+Icon bounce on hover (keyframe 0% 100%, 50% up 5px)
+Stats/Numbers (dacă adaugi):
+
+Counter animation (0 → final number, 2s on scroll visibility)
+Underline bar grow animation (0% → 100% width)
+Testimonials Carousel:
+
+Fade-in staggered (first, second, third cards animate cu 200ms delay)
+Slide-in from sides (left card -100%, center 0, right +100%)
+Auto-rotation cu pause on hover
+Process Steps (Cum Lucrăm):
+
+Number badges rotate in (3D flip effect)
+Connecting lines animate "draw" from left to right
+Icon fill animation (stroke → fill gradient)
+Contact Section:
+
+Form fields focus: blue underline slide effect
+Button gradient animate on hover (gradient angle shift 0° → 45°)
+Success message confetti animation (optional)
+Navigation:
+
+Smooth scroll to sections (scroll-behavior: smooth)
+Active nav item animated underline (slide to match)
+Mobile menu slide-in from left (0.3s cubic-bezier)
+Background Elements (subtle):
+
+Floating geometric shapes (opacity 0.05) subtle rotation
+Gradient background diagonal animation (very subtle, 10s loop)
+Bubbles/circles float effect (parallax on scroll)
+3. SECȚIUNI NOVEÎNȚI/MISSING (Adaugă după "Servicii"):
+Secțiunea "Rezultate în Numere" (STATS):
+500+ Clienți satisfăcuți (2023-2025)
+10,000+ Ore de serviciu profesional
+98% Rating mediu pe Google (⭐⭐⭐⭐⭐)
+30+ Zone deservite în Dâmbovița
+(Cu animații de counter + animated bars)
+
+Secțiunea "Garanție & Garantii":
+"✓ Satisfacție 100% garantată - dacă nu ești mulțumit, TE RE-CURATAM GRATUIT"
+"✓ Prețuri blocate - nicio majorare surpriză"
+"✓ Asigurare responsabilitate civară - nicio grijă"
+"✓ Dezinfectare completa (ozon + UV) la cerere"
+Secțiunea "FAQ" (collapsible):
+Ce echipamente folosiți?
+Cât timp durează uscare după curățare?
+Oferiți reduceri pentru abonamente?
+Lucrez sâmbete/dumineci?
+Ce se include în pachetele combo?
+Cum mă pot programa?
+Secțiunea "Blog/Articole Rapide" (3 tiles):
+"5 Semne că Saltea ta trebuie Curățată Urgent"
+"Cum Menții Canapea Curată (Sfaturi Profesionale)"
+"Interior Auto Impecabil - Pași Simpli de Ingrijire"
+4. OPTIMIZĂRI FUNCȚIONALE:
+CTA Buttons (Optimize):
+Culoare gradient (albastru → verde)
+Pulsing animation pe "Solicită Ofertă" (subtle glow)
+Sticky CTA button (bottom right, mobile) - persistent
+WhatsApp button direct link: wa.me/+4012XXXXXXXX (completeaza tu nr)
+Contact Form (Validate):
+Required fields validation (real-time)
+Zone/Arie deservită - autocomplete sau dropdown
+Select servicii (multi-select cu icons)
+Optional: Drag-drop pentru foto problem (damage, murdarire)
+Mobile Optimization:
+Hamburger menu animated (3 linii → X cu rotate)
+Touch-friendly button sizes (min 48x48px)
+Collapsed "Prețuri" table (scroll horizontal pe mobile)
+Sticky header cu logo + call button
+SEO & Meta Tags:
+Title: "Curățenie Profesională Târgoviște - [Nume Firma] | Canapele, Saltele, Auto"
+Description (160 chars): "Servicii de curățenie profesională în Târgoviște. Canapele, saltele, auto, calorifere. Echipament Kärcher. Rezultate garantate. Ofertă gratuită!"
+Keywords: curățenie Târgoviște, curățare canapea, detailing auto, igienizare profesională
+Schema markup (LocalBusiness + Service)
+5. COPY/TEXT DETAILS (Sub-headlines & CTAs):
+"⚡ Răspuns în 30 min | 📍 Deplasare Inclusă | ✓ 100% Satisfacție"
+"Nu lăsa murdarìa să aibă control – noi te curățăm profesionist"
+"De la murdar la impecabil - in 2-3 ore"
+CTA secundar: "Vezi Galeria Rezultate" (scroll to testimonials/before-after)
+DESIGN PHILOSOPHY:
+
+Profesional, încredere, rezultate vizibile
+Albastru + verde = curățenie + prosperitate
+Animații subtle (nu aggressive) - încredere
+Prețuri clare + garanții = conversie mai bună
+Mobile-first: 70% din clienți vor accesa pe telefon
+3-5 CTA buttons strategice = contact = sales
+REZULTAT FINAL: Site-ul va transpira PROFESIONALISM, TRANSPARENȚĂ și REZULTATE. Clienții se vor simți SIGURI că aleg oamenii potriviți.
