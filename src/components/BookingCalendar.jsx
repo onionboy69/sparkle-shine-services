@@ -75,9 +75,18 @@ export default function BookingCalendar({ onClose }) {
   }
 
   const tileClassName = ({ date }) => {
-    if (date < new Date().setHours(0,0,0,0)) return null
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    
+    if (date < today) return 'calendar-disabled'
     const availability = getAvailability(date)
     return `calendar-${availability}`
+  }
+
+  const tileDisabled = ({ date }) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return date < today
   }
 
   const isTimeSlotAvailable = (time) => {
@@ -112,13 +121,17 @@ export default function BookingCalendar({ onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50 p-4">
+    <div 
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border-2 border-gray-200"
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
       >
-        <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10 shadow-sm">
+        <div className="p-6 border-b bg-white flex justify-between items-center sticky top-0 z-10 shadow-sm rounded-t-2xl">
           <div>
             <h2 className="text-2xl font-bold text-dark">Programare Online</h2>
             <div className="flex gap-2 mt-2">
@@ -132,10 +145,10 @@ export default function BookingCalendar({ onClose }) {
               ))}
             </div>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-dark text-3xl font-bold leading-none">&times;</button>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-3xl font-bold leading-none">&times;</button>
         </div>
 
-        <div className="p-6 bg-white">
+        <div className="p-6 bg-white rounded-b-2xl">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
@@ -144,7 +157,7 @@ export default function BookingCalendar({ onClose }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
               >
-                <h3 className="text-xl font-bold mb-4">Selectează Serviciile</h3>
+                <h3 className="text-xl font-bold mb-4 text-dark">Selectează Serviciile</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   {SERVICES.map((service, idx) => (
                     <motion.div
@@ -153,24 +166,24 @@ export default function BookingCalendar({ onClose }) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.05 }}
                       onClick={() => toggleService(service.id)}
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all bg-white shadow-sm ${
                         selectedServices.includes(service.id)
-                          ? 'border-secondary bg-green-50'
-                          : 'border-gray-200 hover:border-secondary'
+                          ? 'border-blue-500 bg-blue-50 shadow-md scale-105'
+                          : 'border-gray-300 hover:border-blue-400 hover:shadow-md'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`text-3xl ${selectedServices.includes(service.id) ? 'text-secondary' : 'text-gray-400'}`}>
+                        <div className={`text-3xl ${selectedServices.includes(service.id) ? 'text-blue-600' : 'text-gray-400'}`}>
                           {service.icon}
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-dark">{service.name}</h4>
+                          <h4 className={`font-semibold ${selectedServices.includes(service.id) ? 'text-blue-900' : 'text-dark'}`}>{service.name}</h4>
                           <p className="text-sm text-gray-600">
                             {service.duration} min • {service.price} lei
                           </p>
                         </div>
                         {selectedServices.includes(service.id) && (
-                          <FaCheckCircle className="text-secondary text-xl" />
+                          <FaCheckCircle className="text-blue-600 text-xl" />
                         )}
                       </div>
                     </motion.div>
@@ -202,13 +215,14 @@ export default function BookingCalendar({ onClose }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
               >
-                <h3 className="text-xl font-bold mb-4">Alege Data</h3>
-                <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl">
+                <h3 className="text-xl font-bold mb-4 text-dark">Alege Data</h3>
+                <div className="bg-white p-6 rounded-xl border-2 border-gray-200 shadow-sm">
                   <Calendar
                     onChange={setSelectedDate}
                     value={selectedDate}
                     minDate={new Date()}
                     tileClassName={tileClassName}
+                    tileDisabled={tileDisabled}
                     locale="ro-RO"
                   />
                 </div>
