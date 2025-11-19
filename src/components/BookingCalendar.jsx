@@ -122,33 +122,33 @@ export default function BookingCalendar({ onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
       >
-        <div className="p-6 border-b bg-white flex justify-between items-center sticky top-0 z-10 shadow-sm rounded-t-2xl">
+        <div className="p-6 border-b dark:border-gray-700 bg-white dark:bg-gray-800 flex justify-between items-center sticky top-0 z-10 shadow-sm rounded-t-2xl">
           <div>
-            <h2 className="text-2xl font-bold text-dark">Programare Online</h2>
+            <h2 className="text-2xl font-bold text-dark dark:text-white">Programare Online</h2>
             <div className="flex gap-2 mt-2">
               {[1, 2, 3, 4].map((s) => (
                 <div
                   key={s}
                   className={`h-1.5 rounded-full flex-1 transition-all ${
-                    s <= step ? 'bg-secondary' : 'bg-gray-200'
+                    s <= step ? 'bg-secondary' : 'bg-gray-200 dark:bg-gray-700'
                   }`}
                 />
               ))}
             </div>
           </div>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-3xl font-bold leading-none">&times;</button>
+          <button onClick={onClose} className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-3xl font-bold leading-none">&times;</button>
         </div>
 
-        <div className="p-6 bg-white rounded-b-2xl">
+        <div className="p-6 bg-white dark:bg-gray-800 rounded-b-2xl">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
@@ -157,7 +157,7 @@ export default function BookingCalendar({ onClose }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
               >
-                <h3 className="text-xl font-bold mb-4 text-dark">Selectează Serviciile</h3>
+                <h3 className="text-xl font-bold mb-4 text-dark dark:text-white">Selectează Serviciile</h3>
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
                   {SERVICES.map((service, idx) => (
                     <motion.div
@@ -166,10 +166,10 @@ export default function BookingCalendar({ onClose }) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.05 }}
                       onClick={() => toggleService(service.id)}
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all bg-white shadow-sm ${
+                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all bg-white dark:bg-gray-700 shadow-sm ${
                         selectedServices.includes(service.id)
-                          ? 'border-blue-500 bg-blue-50 shadow-md scale-105'
-                          : 'border-gray-300 hover:border-blue-400 hover:shadow-md'
+                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/50 shadow-md scale-105'
+                          : 'border-gray-300 dark:border-gray-600 hover:border-blue-400 hover:shadow-md'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -177,8 +177,8 @@ export default function BookingCalendar({ onClose }) {
                           {service.icon}
                         </div>
                         <div className="flex-1">
-                          <h4 className={`font-semibold ${selectedServices.includes(service.id) ? 'text-blue-900' : 'text-dark'}`}>{service.name}</h4>
-                          <p className="text-sm text-gray-600">
+                          <h4 className={`font-semibold ${selectedServices.includes(service.id) ? 'text-blue-900 dark:text-blue-200' : 'text-dark dark:text-gray-200'}`}>{service.name}</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
                             {service.duration} min • {service.price} lei
                           </p>
                         </div>
@@ -215,8 +215,8 @@ export default function BookingCalendar({ onClose }) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
               >
-                <h3 className="text-xl font-bold mb-4 text-dark">Alege Data</h3>
-                <div className="bg-white p-6 rounded-xl border-2 border-gray-200 shadow-sm">
+                <h3 className="text-xl font-bold mb-4 text-dark dark:text-white">Alege Data</h3>
+                <div className="bg-white dark:bg-gray-700 p-6 rounded-xl border-2 border-gray-200 dark:border-gray-600 shadow-sm">
                   <Calendar
                     onChange={setSelectedDate}
                     value={selectedDate}

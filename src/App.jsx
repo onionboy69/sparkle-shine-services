@@ -138,18 +138,18 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header/Navigation */}
-      <header className="fixed top-0 w-full z-50 py-4">
+      <header className="fixed top-0 w-full z-50 py-4 dark:bg-gray-900/80 backdrop-blur-sm">
         <nav className="container mx-auto px-4 flex justify-between items-center">
-          <div className="text-3xl font-bold text-gradient bg-white px-8 py-4 rounded-full shadow-lg">
+          <div className="text-3xl font-bold text-gradient bg-white dark:bg-gray-800 px-8 py-4 rounded-full shadow-lg">
             StreetLab Cleaners
           </div>
           <div className="hidden md:flex gap-2">
-            <a href="#servicii" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Servicii</a>
-            <a href="#preturi" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Prețuri</a>
-            <a href="#despre" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Despre Noi</a>
-            <a href="#contact" className="text-dark hover:text-primary transition bg-white px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Contact</a>
+            <a href="#servicii" className="text-dark dark:text-gray-200 hover:text-primary dark:hover:text-primary transition bg-white dark:bg-gray-800 px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Servicii</a>
+            <a href="#preturi" className="text-dark dark:text-gray-200 hover:text-primary dark:hover:text-primary transition bg-white dark:bg-gray-800 px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Prețuri</a>
+            <a href="#despre" className="text-dark dark:text-gray-200 hover:text-primary dark:hover:text-primary transition bg-white dark:bg-gray-800 px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Despre Noi</a>
+            <a href="#contact" className="text-dark dark:text-gray-200 hover:text-primary dark:hover:text-primary transition bg-white dark:bg-gray-800 px-5 py-3 rounded-full shadow-md hover:shadow-lg font-medium">Contact</a>
           </div>
           <a 
             href="tel:+40123456789" 
@@ -162,7 +162,7 @@ function App() {
 
       {/* Hero Section */}
       <section 
-        className="relative pt-32 pb-20 bg-white overflow-hidden transition-all duration-300"
+        className="relative pt-32 pb-20 bg-white dark:bg-gray-900 overflow-hidden transition-all duration-300"
         style={{
           opacity: Math.max(0, 1 - scrollY / 500),
           filter: `blur(${Math.min(scrollY / 100, 10)}px)`,
@@ -176,10 +176,10 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-gray-700"
+              className="text-gray-700 dark:text-gray-200"
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-stagger text-dark"
+                className="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-stagger text-dark dark:text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -195,7 +195,7 @@ function App() {
                 De la Murdar la Impecabil în 2-3 Ore ✨
               </motion.h2>
               <motion.p 
-                className="text-xl text-gray-700 mb-4 fade-in-stagger"
+                className="text-xl text-gray-700 dark:text-gray-300 mb-4 fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -203,7 +203,7 @@ function App() {
                 Canapele • Saltele • Scaune • Auto • Calorifere • Spații comerciale
               </motion.p>
               <motion.p 
-                className="text-gray-600 mb-8 leading-relaxed fade-in-stagger"
+                className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed fade-in-stagger"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -225,7 +225,7 @@ function App() {
                 </button>
                   <a 
                   href="#contact" 
-                  className="bg-gray-100 border-2 border-gray-300 text-dark px-8 py-4 rounded-full hover:bg-gray-200 hover:border-primary transition font-semibold"
+                  className="bg-gray-100 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-dark dark:text-gray-200 px-8 py-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-primary transition font-semibold"
                 >
                   <FaWhatsapp className="inline mr-2" /> Cere Ofertă Gratuită
                 </a>
@@ -272,7 +272,7 @@ function App() {
       {showBooking && <BookingCalendar onClose={() => setShowBooking(false)} />}
 
       {/* De ce noi? Section */}
-      <section id="despre" className="py-20 bg-white">
+      <section id="despre" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -280,8 +280,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">De ce să ne alegi pe noi?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Expertiză, profesionalism și rezultate garantate</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">De ce să ne alegi pe noi?</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Expertiză, profesionalism și rezultate garantate</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -487,7 +487,7 @@ function App() {
       </section>
 
       {/* Prețuri Section */}
-      <section id="preturi" className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section id="preturi" className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -495,8 +495,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Prețuri & Pachete</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Tarife transparente, fără costuri ascunse</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Prețuri & Pachete</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Tarife transparente, fără costuri ascunse</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -506,7 +506,7 @@ function App() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white p-8 rounded-xl shadow-lg relative"
+              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg relative"
             >
               <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
                 <GiSofa /> Textile & Tapițerii
