@@ -84,6 +84,7 @@ body {
   padding: 1rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
+  background: white;
 }
 
 .react-calendar__tile:enabled:hover {
@@ -91,12 +92,15 @@ body {
 }
 
 .react-calendar__tile--active {
-  background: #10B981 !important;
+  background: #2563EB !important;
   color: white;
+  font-weight: bold;
+  border-radius: 999px;
 }
 
 .react-calendar__tile--now {
   background: #DBEAFE;
+  font-weight: 600;
 }
 
 .calendar-available {
@@ -115,6 +119,19 @@ body {
   text-decoration: line-through;
   opacity: 0.6;
   cursor: not-allowed !important;
+}
+
+.calendar-disabled {
+  background: #F9FAFB !important;
+  color: #D1D5DB !important;
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+.react-calendar__tile:disabled {
+  background: #F9FAFB;
+  color: #D1D5DB;
+  cursor: not-allowed;
 }
 
 /* Staggered animations */
