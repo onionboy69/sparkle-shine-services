@@ -499,13 +499,14 @@ function App() {
             <p className="text-gray-600 max-w-2xl mx-auto">Tarife transparente, fără costuri ascunse</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {/* Textile & Tapițerii */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              transition={{ duration: 0.5 }}
+              className="bg-white p-8 rounded-xl shadow-lg relative"
             >
               <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
                 <GiSofa /> Textile & Tapițerii
@@ -548,11 +549,11 @@ function App() {
 
             {/* Servicii cu Abur */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl shadow-lg relative"
             >
               <h3 className="text-2xl font-bold text-secondary mb-6 flex items-center gap-2">
                 <FaSprayCan /> Servicii cu Abur
@@ -604,11 +605,11 @@ function App() {
 
             {/* Pachete COMBO */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-gradient-to-br from-primary to-secondary text-white p-8 rounded-xl shadow-lg"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gradient-to-br from-primary to-secondary text-white p-8 rounded-xl shadow-lg relative"
             >
               <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <FaMedal /> PACHETE COMBO
