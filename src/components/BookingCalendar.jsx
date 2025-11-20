@@ -122,279 +122,288 @@ export default function BookingCalendar({ onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
       >
-        <div className="p-6 border-b dark:border-gray-700 bg-white dark:bg-gray-800 flex justify-between items-center sticky top-0 z-10 shadow-sm rounded-t-2xl">
-          <div>
-            <h2 className="text-2xl font-bold text-dark dark:text-white">Programare Online</h2>
-            <div className="flex gap-2 mt-2">
-              {[1, 2, 3, 4].map((s) => (
-                <div
-                  key={s}
-                  className={`h-1.5 rounded-full flex-1 transition-all ${
-                    s <= step ? 'bg-secondary' : 'bg-gray-200 dark:bg-gray-700'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-          <button onClick={onClose} className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-3xl font-bold leading-none">&times;</button>
+        {/* Header */}
+        <div className="p-4 border-b bg-white flex justify-between items-center">
+          <h2 className="text-xl font-bold text-dark">Programare Online</h2>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
         </div>
 
-        <div className="p-6 bg-white dark:bg-gray-800 rounded-b-2xl">
-          <AnimatePresence mode="wait">
-            {step === 1 && (
-              <motion.div
-                key="step1"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <h3 className="text-xl font-bold mb-4 text-dark dark:text-white">Selectează Serviciile</h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {SERVICES.map((service, idx) => (
-                    <motion.div
-                      key={service.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                      onClick={() => toggleService(service.id)}
-                      className={`p-4 rounded-xl border-2 cursor-pointer transition-all bg-white dark:bg-gray-700 shadow-sm ${
-                        selectedServices.includes(service.id)
-                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/50 shadow-md scale-105'
-                          : 'border-gray-300 dark:border-gray-600 hover:border-blue-400 hover:shadow-md'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`text-3xl ${selectedServices.includes(service.id) ? 'text-blue-600' : 'text-gray-400'}`}>
-                          {service.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className={`font-semibold ${selectedServices.includes(service.id) ? 'text-blue-900 dark:text-blue-200' : 'text-dark dark:text-gray-200'}`}>{service.name}</h4>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
-                            {service.duration} min • {service.price} lei
-                          </p>
-                        </div>
-                        {selectedServices.includes(service.id) && (
-                          <FaCheckCircle className="text-blue-600 text-xl" />
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {selectedServices.length > 0 && (
-                  <div className="bg-green-100 border-2 border-green-300 p-4 rounded-xl mb-4">
-                    <p className="text-lg font-semibold text-dark">
-                      Estimat: {formatDuration(totalDuration)} | Total: ~{estimatedCost} lei
-                    </p>
-                  </div>
-                )}
-
-                <button
-                  onClick={() => setStep(2)}
-                  disabled={selectedServices.length === 0}
-                  className="w-full gradient-orange text-white py-4 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 hover:animate-glow-orange transition"
+        {/* Main Content - Two Columns */}
+        <div className="flex flex-col md:flex-row max-h-[calc(90vh-80px)]">
+          {/* Left Panel - Service Selection */}
+          <div className="w-full md:w-2/5 border-r p-6 bg-white overflow-y-auto">
+            <h3 className="text-lg font-bold mb-4 text-dark">Selectează Serviciile</h3>
+            <div className="space-y-3">
+              {SERVICES.map((service) => (
+                <div
+                  key={service.id}
+                  onClick={() => toggleService(service.id)}
+                  className={`p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                    selectedServices.includes(service.id)
+                      ? 'border-blue-500 bg-blue-50'
+                      : 'border-gray-200 hover:border-blue-300 bg-white'
+                  }`}
                 >
-                  Continuă <FaArrowRight />
-                </button>
-              </motion.div>
-            )}
-
-            {step === 2 && (
-              <motion.div
-                key="step2"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <h3 className="text-xl font-bold mb-4 text-dark dark:text-white">Alege Data</h3>
-                <div className="bg-white dark:bg-gray-700 p-6 rounded-xl border-2 border-gray-200 dark:border-gray-600 shadow-sm">
-                  <Calendar
-                    onChange={setSelectedDate}
-                    value={selectedDate}
-                    minDate={new Date()}
-                    tileClassName={tileClassName}
-                    tileDisabled={tileDisabled}
-                    locale="ro-RO"
-                  />
-                </div>
-
-                <div className="mt-6 p-4 bg-gray-50 rounded-xl flex gap-4 text-sm border border-gray-200">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-green-200 border-2 border-green-500 rounded"></div>
-                    <span className="font-medium">Disponibil</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-orange-200 border-2 border-orange-500 rounded"></div>
-                    <span className="font-medium">Limitat</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-red-200 border-2 border-red-500 rounded"></div>
-                    <span className="font-medium">Ocupat</span>
+                  <div className="flex items-start gap-3">
+                    <div className={`text-2xl mt-1 ${selectedServices.includes(service.id) ? 'text-blue-600' : 'text-gray-400'}`}>
+                      {service.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-dark">{service.name}</h4>
+                      <p className="text-sm text-gray-600">
+                        {service.duration} min • {service.price} lei
+                      </p>
+                    </div>
+                    {selectedServices.includes(service.id) && (
+                      <FaCheckCircle className="text-blue-600 text-lg mt-1" />
+                    )}
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="flex gap-3 mt-6">
-                  <button
-                    onClick={() => setStep(1)}
-                    className="flex-1 border-2 border-gray-300 text-dark py-3 rounded-xl font-bold hover:bg-gray-50 flex items-center justify-center gap-2"
-                  >
-                    <FaArrowLeft /> Înapoi
-                  </button>
-                  <button
-                    onClick={() => setStep(3)}
-                    disabled={!selectedDate}
-                    className="flex-1 gradient-orange text-white py-3 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    Continuă <FaArrowRight />
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-            {step === 3 && (
-              <motion.div
-                key="step3"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <h3 className="text-xl font-bold mb-4">Selectează Ora</h3>
-                <p className="text-gray-600 mb-4">
-                  Data: <strong>{selectedDate?.toLocaleDateString('ro-RO')}</strong> • Durata: <strong>{formatDuration(totalDuration)}</strong>
+            {selectedServices.length > 0 && (
+              <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-sm font-semibold text-dark">
+                  Total estimat: {formatDuration(totalDuration)} | ~{estimatedCost} lei
                 </p>
+              </div>
+            )}
+          </div>
 
-                <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-6">
-                  {TIME_SLOTS.map((time, idx) => {
-                    const available = isTimeSlotAvailable(time)
-                    return (
-                      <motion.button
-                        key={time}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: idx * 0.05 }}
-                        onClick={() => available && setSelectedTime(time)}
-                        disabled={!available}
-                        className={`p-3 rounded-xl font-semibold transition-all ${
-                          selectedTime === time
-                            ? 'bg-secondary text-white shadow-lg scale-105'
-                            : available
-                            ? 'bg-green-50 border-2 border-green-200 text-dark hover:border-secondary'
-                            : 'bg-red-50 border-2 border-red-200 text-gray-400 cursor-not-allowed opacity-50'
-                        } ${!available ? 'animate-pulse-red' : ''}`}
-                      >
-                        <FaClock className="inline mr-1" />
-                        {time}
-                      </motion.button>
-                    )
-                  })}
-                </div>
-
-                <div className="flex gap-3">
+          {/* Right Panel - Calendar & Details */}
+          <div className="w-full md:w-3/5 p-6 bg-gray-50 overflow-y-auto">
+            <AnimatePresence mode="wait">
+              {step === 1 && (
+                <motion.div
+                  key="step1"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-center py-12"
+                >
+                  <h3 className="text-2xl font-bold text-dark mb-4">Curățenie & Igienizare Profesională</h3>
+                  <p className="text-gray-600 mb-3">De la Murdar la Impecabil în 2-3 Ore ✨</p>
+                  <p className="text-gray-500 text-sm mb-6">
+                    Canapele • Saltele • Scaune • Auto • Calorifere • Spații comerciale
+                  </p>
+                  <p className="text-gray-600 mb-6">
+                    Specialiști în curățenie cu echipamente profesionale Kärcher. Servicii rapide, eficiente și cu parfum inclus. Rezultate vizibile, clienți mulțumiți, garanție 100%.
+                  </p>
+                  <div className="flex items-center justify-center gap-4 text-sm text-gray-600 mb-8">
+                    <div className="flex items-center gap-2">
+                      <span className="text-red-500">🎯</span>
+                      <span>Alege Servicii & Programează Instant</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-gray-600">
+                    <span className="flex items-center gap-1">⏱️ Răspuns &lt;30 min</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">🚗 Deplasare Inclusă</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">✓ 100% Satisfacție Garantată</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">🛡️ Asigurare RCA</span>
+                  </div>
                   <button
-                    onClick={() => setStep(2)}
-                    className="flex-1 border-2 border-gray-300 text-dark py-3 rounded-xl font-bold hover:bg-gray-50 flex items-center justify-center gap-2"
-                  >
-                    <FaArrowLeft /> Înapoi
-                  </button>
-                  <button
-                    onClick={() => setStep(4)}
-                    disabled={!selectedTime}
-                    className="flex-1 gradient-orange text-white py-3 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    onClick={() => selectedServices.length > 0 && setStep(2)}
+                    disabled={selectedServices.length === 0}
+                    className="mt-8 px-8 py-3 gradient-orange text-white rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto"
                   >
                     Continuă <FaArrowRight />
                   </button>
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
 
-            {step === 4 && (
-              <motion.div
-                key="step4"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-              >
-                <h3 className="text-xl font-bold mb-4">Confirmare</h3>
-                
-                <div className="bg-accent p-6 rounded-xl mb-6 space-y-3">
-                  <div>
-                    <p className="text-sm text-gray-600">Servicii Selectate:</p>
-                    <p className="font-semibold text-dark">
-                      {selectedServices.map(id => SERVICES.find(s => s.id === id).name).join(', ')}
-                    </p>
+              {step === 2 && (
+                <motion.div
+                  key="step2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <h3 className="text-xl font-bold mb-4 text-dark">Alege Data</h3>
+                  <div className="bg-white p-4 rounded-xl border shadow-sm">
+                    <Calendar
+                      onChange={setSelectedDate}
+                      value={selectedDate}
+                      minDate={new Date()}
+                      tileClassName={tileClassName}
+                      tileDisabled={tileDisabled}
+                      locale="ro-RO"
+                      className="border-0"
+                    />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+
+                  <div className="mt-4 flex gap-3 text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-green-200 border border-green-500 rounded"></div>
+                      <span>Disponibil</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-orange-200 border border-orange-500 rounded"></div>
+                      <span>Limitat</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-red-200 border border-red-500 rounded"></div>
+                      <span>Ocupat</span>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3 mt-6">
+                    <button
+                      onClick={() => setStep(1)}
+                      className="flex-1 border-2 border-gray-300 text-dark py-2 rounded-lg font-semibold hover:bg-gray-50"
+                    >
+                      Înapoi
+                    </button>
+                    <button
+                      onClick={() => setStep(3)}
+                      disabled={!selectedDate}
+                      className="flex-1 gradient-orange text-white py-2 rounded-lg font-semibold disabled:opacity-50"
+                    >
+                      Continuă
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {step === 3 && (
+                <motion.div
+                  key="step3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <h3 className="text-xl font-bold mb-2 text-dark">Selectează Ora</h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Data: <strong>{selectedDate?.toLocaleDateString('ro-RO')}</strong> • Durata: <strong>{formatDuration(totalDuration)}</strong>
+                  </p>
+
+                  <div className="grid grid-cols-3 gap-2 mb-6">
+                    {TIME_SLOTS.map((time) => {
+                      const available = isTimeSlotAvailable(time)
+                      return (
+                        <button
+                          key={time}
+                          onClick={() => available && setSelectedTime(time)}
+                          disabled={!available}
+                          className={`p-2 rounded-lg text-sm font-semibold transition-all ${
+                            selectedTime === time
+                              ? 'bg-green-500 text-white'
+                              : available
+                              ? 'bg-green-50 border border-green-200 text-dark hover:bg-green-100'
+                              : 'bg-red-50 border border-red-200 text-gray-400 cursor-not-allowed'
+                          }`}
+                        >
+                          {time}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setStep(2)}
+                      className="flex-1 border-2 border-gray-300 text-dark py-2 rounded-lg font-semibold hover:bg-gray-50"
+                    >
+                      Înapoi
+                    </button>
+                    <button
+                      onClick={() => setStep(4)}
+                      disabled={!selectedTime}
+                      className="flex-1 gradient-orange text-white py-2 rounded-lg font-semibold disabled:opacity-50"
+                    >
+                      Continuă
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+
+              {step === 4 && (
+                <motion.div
+                  key="step4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <h3 className="text-xl font-bold mb-4 text-dark">Confirmare</h3>
+                  
+                  <div className="bg-white p-4 rounded-lg mb-4 space-y-2 border">
                     <div>
-                      <p className="text-sm text-gray-600 flex items-center gap-2">
-                        <FaCalendarAlt /> Data:
+                      <p className="text-xs text-gray-600">Servicii:</p>
+                      <p className="font-semibold text-sm text-dark">
+                        {selectedServices.map(id => SERVICES.find(s => s.id === id).name).join(', ')}
                       </p>
-                      <p className="font-semibold text-dark">{selectedDate?.toLocaleDateString('ro-RO')}</p>
                     </div>
-                    <div>
-                      <p className="text-sm text-gray-600 flex items-center gap-2">
-                        <FaClock /> Ora:
-                      </p>
-                      <p className="font-semibold text-dark">{selectedTime}</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-gray-600">Data:</p>
+                        <p className="font-semibold text-sm text-dark">{selectedDate?.toLocaleDateString('ro-RO')}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-600">Ora:</p>
+                        <p className="font-semibold text-sm text-dark">{selectedTime}</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-gray-600">Durata:</p>
+                        <p className="font-semibold text-sm text-dark">{formatDuration(totalDuration)}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-600">Cost Estimat:</p>
+                        <p className="font-semibold text-sm text-orange">~{estimatedCost} lei</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-sm text-gray-600">Durata:</p>
-                      <p className="font-semibold text-dark">{formatDuration(totalDuration)}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Cost Estimat:</p>
-                      <p className="font-semibold text-secondary">~{estimatedCost} lei</p>
-                    </div>
+
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold text-dark mb-2">
+                      Locație / Zonă
+                    </label>
+                    <select
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      className="w-full p-2 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm"
+                    >
+                      <option value="">Selectează zona</option>
+                      <option value="Târgoviște Centru">Târgoviște Centru</option>
+                      <option value="Micro 3">Micro 3</option>
+                      <option value="Micro 11">Micro 11</option>
+                      <option value="Valea Voievozilor">Valea Voievozilor</option>
+                      <option value="Altă zonă">Altă zonă în Târgoviște</option>
+                    </select>
                   </div>
-                </div>
 
-                <div className="mb-6">
-                  <label className="block text-sm font-semibold text-dark mb-2 flex items-center gap-2">
-                    <FaMapMarkerAlt /> Locație / Zonă
-                  </label>
-                  <select
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-secondary focus:outline-none"
-                    required
-                  >
-                    <option value="">Selectează zona</option>
-                    <option value="Târgoviște Centru">Târgoviște Centru</option>
-                    <option value="Micro 3">Micro 3</option>
-                    <option value="Micro 11">Micro 11</option>
-                    <option value="Valea Voievozilor">Valea Voievozilor</option>
-                    <option value="Altă zonă">Altă zonă în Târgoviște</option>
-                  </select>
-                </div>
-
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => setStep(3)}
-                    className="flex-1 border-2 border-gray-300 text-dark py-3 rounded-xl font-bold hover:bg-gray-50 flex items-center justify-center gap-2"
-                  >
-                    <FaArrowLeft /> Înapoi
-                  </button>
-                  <button
-                    onClick={handleConfirm}
-                    disabled={!location}
-                    className="flex-1 gradient-orange text-white py-4 rounded-xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 animate-glow-orange"
-                  >
-                    <FaCheckCircle /> Confirmare Programare
-                  </button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setStep(3)}
+                      className="flex-1 border-2 border-gray-300 text-dark py-2 rounded-lg font-semibold hover:bg-gray-50"
+                    >
+                      Înapoi
+                    </button>
+                    <button
+                      onClick={handleConfirm}
+                      disabled={!location}
+                      className="flex-1 gradient-orange text-white py-3 rounded-lg font-bold disabled:opacity-50"
+                    >
+                      Confirmă Programarea
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </motion.div>
     </div>
