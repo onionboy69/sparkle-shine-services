@@ -144,8 +144,43 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 relative">
+              {isSubmitted && (
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                  className="absolute inset-0 bg-gradient-to-br from-green to-green-light rounded-xl flex flex-col items-center justify-center text-white p-8 z-10"
+                  style={{ minHeight: '400px' }}
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
+                  >
+                    <FaCheckCircle className="text-6xl mb-4" />
+                  </motion.div>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-xl font-bold"
+                  >
+                    ✓ Mulțumim! Te vom contacta în &lt;30 min
+                  </motion.p>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-sm mt-2"
+                  >
+                    Verifică-ți WhatsApp pentru confirmare
+                  </motion.p>
+                </motion.div>
+              )}
+              
               <div className="relative">
                 <motion.input
                   type="text"
@@ -232,9 +267,10 @@ export default function ContactSection() {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-8 py-4 bg-gradient-to-r from-orange to-orange-light text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-2xl gradient-orange-glow transition-all duration-300 relative overflow-hidden"
+                style={{ minHeight: '56px' }}
               >
                 <motion.div
                   className="absolute inset-0 bg-white/20"

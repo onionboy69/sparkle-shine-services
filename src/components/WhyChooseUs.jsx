@@ -52,15 +52,15 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                scale: 1.08,
+                boxShadow: "0 25px 50px rgba(255, 107, 53, 0.2)",
               }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover:border-orange dark:hover:border-orange transition-all duration-300"
             >
               <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
+                whileHover={{ rotate: 360, scale: 1.2 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl text-blue-600 dark:text-blue-400 mb-4"
+                className="text-5xl text-orange mb-4"
               >
                 {feature.icon}
               </motion.div>
