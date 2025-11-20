@@ -88,13 +88,13 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300"
+              whileHover={{ y: -12, scale: 1.05 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-orange hover:shadow-2xl dark:hover:border-orange transition-all duration-300"
             >
-              <div className="bg-gradient-to-br from-blue-600 to-green-500 p-6">
+              <div className="bg-gradient-to-br from-orange via-orange-light to-green p-6">
                 <motion.div
-                  whileHover={{ rotate: 15, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.6 }}
                   className="text-5xl text-white mb-3"
                 >
                   {category.icon}
@@ -124,8 +124,8 @@ export default function ServicesSection() {
                         </p>
                       </div>
                       <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="font-bold text-blue-600 dark:text-blue-400"
+                        whileHover={{ scale: 1.15, y: -2 }}
+                        className="font-bold text-orange animate-bounce-subtle"
                       >
                         {service.price}
                       </motion.div>
@@ -136,9 +136,9 @@ export default function ServicesSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-green-500 text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+                  className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-orange to-orange-light text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:shadow-2xl gradient-orange-glow transition-all duration-300"
                 >
-                  Detalii <FaArrowRight />
+                  Detalii <motion.span whileHover={{ x: 5 }} className="inline-block"><FaArrowRight /></motion.span>
                 </motion.button>
               </div>
             </motion.div>

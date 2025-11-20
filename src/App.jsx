@@ -78,6 +78,21 @@ function App() {
       </footer>
 
       {showBooking && <BookingCalendar onClose={() => setShowBooking(false)} />}
+      
+      {/* Sticky Mobile WhatsApp CTA */}
+      <motion.a
+        href="https://wa.me/40720779009"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="md:hidden fixed bottom-5 right-5 z-50 w-14 h-14 bg-gradient-to-r from-green to-green-light text-white rounded-full shadow-2xl flex items-center justify-center"
+        style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.8)' }}
+      >
+        <FaPhone className="text-2xl" />
+      </motion.a>
     </div>
   )
 }

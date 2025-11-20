@@ -10,7 +10,15 @@ export default {
         primary: '#2563EB',
         secondary: '#10B981',
         accent: '#F8FAFB',
-        orange: '#FF6B35',
+        orange: {
+          DEFAULT: '#FF6B35',
+          light: '#FF8C5A',
+          glow: 'rgba(255, 107, 53, 0.6)',
+        },
+        green: {
+          DEFAULT: '#10B981',
+          light: '#34D399',
+        },
         dark: '#1F2937',
       },
       animation: {
@@ -27,6 +35,8 @@ export default {
         'flip-3d': 'flip3d 0.8s ease-out',
         'slide-in': 'slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         'fade-in-stagger': 'fadeInStagger 0.6s ease-out both',
+        'ripple': 'ripple 0.6s ease-out',
+        'bounce-icon': 'bounceIcon 0.3s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -80,6 +90,14 @@ export default {
         fadeInStagger: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        ripple: {
+          '0%': { transform: 'scale(0)', opacity: '1' },
+          '100%': { transform: 'scale(4)', opacity: '0' },
+        },
+        bounceIcon: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-3px)' },
         },
       },
     },

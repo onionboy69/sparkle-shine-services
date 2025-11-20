@@ -72,7 +72,16 @@ body {
   }
   
   .gradient-orange {
-    background: linear-gradient(135deg, #FF6B35, #FF8C42);
+    background: linear-gradient(135deg, #FF6B35, #FF8C5A);
+  }
+
+  .gradient-orange-glow {
+    background: linear-gradient(135deg, #FF6B35, #FF8C5A);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+  }
+
+  .gradient-orange-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.9);
   }
 
   .hover-lift {

@@ -122,7 +122,8 @@ export default function HeroSection({ onOpenBooking, onScrollToPricing }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onOpenBooking}
-                className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-full text-lg shadow-2xl overflow-hidden"
+                className="group relative px-8 py-7 bg-gradient-to-r from-orange to-orange-light text-white font-bold rounded-full text-lg shadow-2xl overflow-hidden gradient-orange-glow"
+                style={{ minHeight: '56px' }}
               >
                 <motion.div
                   className="absolute inset-0 bg-white/20"
@@ -137,7 +138,7 @@ export default function HeroSection({ onOpenBooking, onScrollToPricing }) {
                 />
                 <span className="relative flex items-center justify-center gap-2">
                   <FaCalendarAlt className="text-xl" />
-                  Alege Servicii & Programează
+                  🔴 ALEGE SERVICII & PROGRAMEAZĂ ACUM
                 </span>
               </motion.button>
               
@@ -145,11 +146,24 @@ export default function HeroSection({ onOpenBooking, onScrollToPricing }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onScrollToPricing}
-                className="px-8 py-4 bg-transparent border-2 border-green-300 text-white font-bold rounded-full text-lg hover:bg-green-300 hover:text-green-900 transition-all duration-300 flex items-center justify-center gap-2"
+                className="px-8 py-7 bg-transparent border-2 border-green text-white font-bold rounded-full text-lg hover:bg-green hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+                style={{ minHeight: '56px' }}
               >
                 <FaTag className="text-xl" />
                 Vezi Prețurile
               </motion.button>
+            </motion.div>
+            
+            {/* Urgency badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex flex-wrap gap-4 text-white/90 text-sm mt-4"
+            >
+              <span>⏱️ Răspunsuri în &lt;30 min</span>
+              <span>🚗 Deplasare Inclusă</span>
+              <span>✓ 100% Satisfacție</span>
             </motion.div>
           </motion.div>
           
