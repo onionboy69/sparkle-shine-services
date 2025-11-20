@@ -51,7 +51,11 @@ export default {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-          '50%': { transform: 'translateY(-20px) rotate(180deg)' },
+          '50%': { transform: 'translateY(-30px) rotate(180deg)' },
+        },
+        glow: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(37, 99, 235, 0.5)' },
+          '50%': { boxShadow: '0 0 40px rgba(16, 185, 129, 0.8)' }
         },
         glowOrange: {
           '0%, 100%': { boxShadow: '0 0 5px rgba(255, 107, 53, 0.5)' },

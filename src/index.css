@@ -91,13 +91,20 @@ body {
   .hover-scale:hover {
     transform: scale(1.02);
   }
-  
-  .floating-bubble {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    pointer-events: none;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
   }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
 }
 
 /* React Calendar Styling */
