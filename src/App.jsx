@@ -162,12 +162,7 @@ function App() {
 
       {/* Hero Section */}
       <section 
-        className="relative pt-32 pb-20 bg-white dark:bg-gray-900 overflow-hidden transition-all duration-300"
-        style={{
-          opacity: Math.max(0, 1 - scrollY / 500),
-          filter: `blur(${Math.min(scrollY / 100, 10)}px)`,
-          transform: `translateY(-${scrollY * 0.5}px)`
-        }}
+        className="relative pt-32 pb-20 bg-white dark:bg-gray-900 overflow-hidden"
       >
         <FloatingBubbles />
         <div className="container mx-auto px-4 relative z-10">
@@ -176,7 +171,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-gray-700 dark:text-gray-200"
+              className="text-dark dark:text-gray-200"
             >
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-stagger text-dark dark:text-white"
@@ -313,14 +308,14 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-accent to-white p-8 rounded-xl hover-lift text-center group overflow-hidden relative border border-gray-100 hover:border-secondary transition-all duration-300"
+                className="bg-gradient-to-br from-accent to-white dark:from-gray-700 dark:to-gray-800 p-8 rounded-xl hover-lift text-center group overflow-hidden relative border border-gray-100 dark:border-gray-600 hover:border-secondary transition-all duration-300"
               >
                 <div className="mb-4 inline-block group-hover:animate-rotate-360 transition-transform duration-600">{item.icon}</div>
-                <h3 className="text-xl font-bold text-dark mb-3 relative">
+                <h3 className="text-xl font-bold text-dark dark:text-white mb-3 relative">
                   {item.title}
                   <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary w-0 group-hover:w-full transition-all duration-500"></div>
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -328,7 +323,7 @@ function App() {
       </section>
 
       {/* Cum Lucrăm Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -336,8 +331,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Cum Lucrăm?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Proces simplu și transparent în 4 pași</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Cum Lucrăm?</h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Proces simplu și transparent în 4 pași</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -375,7 +370,7 @@ function App() {
                 transition={{ delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="bg-white p-8 rounded-xl shadow-lg hover-lift group">
+                <div className="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg hover-lift group">
                   <div className="flex items-center gap-4 mb-4">
                     <motion.div 
                       className="w-14 h-14 bg-gradient-to-br from-orange to-primary rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg"
@@ -388,8 +383,8 @@ function App() {
                     </motion.div>
                     <div className="text-3xl text-orange group-hover:animate-bounce-subtle">{item.icon}</div>
                   </div>
-                  <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <h3 className="text-xl font-bold text-dark dark:text-white mb-3">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                 </div>
                 {index < 3 && (
                   <motion.div 
@@ -407,7 +402,7 @@ function App() {
       </section>
 
       {/* Servicii Section */}
-      <section id="servicii" className="py-20 bg-white">
+      <section id="servicii" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -415,8 +410,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Serviciile Noastre</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Soluții complete de curățenie profesională</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Serviciile Noastre</h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Soluții complete de curățenie profesională</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -464,17 +459,17 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-accent to-white p-8 rounded-xl shadow-lg hover-lift border border-gray-100 hover:border-orange group transition-all duration-300"
+                className="bg-gradient-to-br from-accent to-white dark:from-gray-700 dark:to-gray-800 p-8 rounded-xl shadow-lg hover-lift border border-gray-100 dark:border-gray-600 hover:border-orange group transition-all duration-300"
               >
                 <div className="mb-4 inline-block group-hover:animate-rotate-360">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-dark mb-3 relative">
+                <h3 className="text-2xl font-bold text-dark dark:text-white mb-3 relative">
                   {service.title}
                   <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange to-primary w-0 group-hover:w-full transition-all duration-500"></div>
                 </h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-700">
+                    <li key={idx} className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                       <FaCheckCircle className="text-secondary flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
@@ -553,7 +548,7 @@ function App() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white p-8 rounded-xl shadow-lg relative"
+              className="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg relative"
             >
               <h3 className="text-2xl font-bold text-secondary mb-6 flex items-center gap-2">
                 <FaSprayCan /> Servicii cu Abur
@@ -639,8 +634,8 @@ function App() {
             </motion.div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-            <p className="text-gray-700"><strong>Zona Deservită:</strong> Operăm în Târgoviște, Dâmbovița și zone limitrofe (rază 30km). <span className="text-primary font-semibold">Deplasare INCLUSĂ în preț.</span> Pentru zone mai îndepărtate: contactați pentru supliment mic.</p>
+          <div className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg text-center">
+            <p className="text-gray-700 dark:text-gray-300"><strong>Zona Deservită:</strong> Operăm în Târgoviște, Dâmbovița și zone limitrofe (rază 30km). <span className="text-primary font-semibold">Deplasare INCLUSĂ în preț.</span> Pentru zone mai îndepărtate: contactați pentru supliment mic.</p>
           </div>
         </div>
       </section>
@@ -654,7 +649,7 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Rezultate în Numere</h2>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Rezultate în Numere</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -670,13 +665,13 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-8 bg-gradient-to-br from-accent to-white rounded-xl shadow-lg hover-lift"
+                className="text-center p-8 bg-gradient-to-br from-accent to-white dark:from-gray-700 dark:to-gray-800 rounded-xl shadow-lg hover-lift"
               >
                 <div className="text-5xl text-primary mb-4">{stat.icon}</div>
                 <div className="text-5xl font-bold text-gradient mb-2">
                   <AnimatedCounter end={stat.number} />{stat.suffix}
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -684,7 +679,7 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -692,8 +687,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Ce Spun Clienții Noștri</h2>
-            <p className="text-gray-600">Feedback real de la clienți mulțumiți</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Ce Spun Clienții Noștri</h2>
+            <p className="text-gray-600 dark:text-gray-300">Feedback real de la clienți mulțumiți</p>
           </motion.div>
 
           <div className="relative max-w-4xl mx-auto">
@@ -704,17 +699,17 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-8 md:p-12 rounded-xl shadow-2xl hover-lift mx-4"
+                className="bg-white dark:bg-gray-700 p-8 md:p-12 rounded-xl shadow-2xl hover-lift mx-4"
               >
                 <div className="flex mb-6">
                   {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
                     <FaStar key={i} className="text-yellow-400 text-2xl" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-lg mb-8 leading-relaxed italic">"{testimonials[currentTestimonial].text}"</p>
-                <div className="border-t pt-6">
-                  <p className="font-bold text-dark text-xl">{testimonials[currentTestimonial].name}</p>
-                  <p className="text-gray-600">din {testimonials[currentTestimonial].location}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-lg mb-8 leading-relaxed italic">"{testimonials[currentTestimonial].text}"</p>
+                <div className="border-t dark:border-gray-600 pt-6">
+                  <p className="font-bold text-dark dark:text-white text-xl">{testimonials[currentTestimonial].name}</p>
+                  <p className="text-gray-600 dark:text-gray-400">din {testimonials[currentTestimonial].location}</p>
                   <p className="text-primary font-semibold mt-2">Serviciu: {testimonials[currentTestimonial].service}</p>
                 </div>
               </motion.div>
@@ -722,7 +717,7 @@ function App() {
 
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg hover:bg-primary hover:text-white transition z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-4 rounded-full shadow-lg hover:bg-primary hover:text-white transition z-10"
               aria-label="Previous testimonial"
             >
               <FaChevronLeft size={24} />
@@ -730,7 +725,7 @@ function App() {
             
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg hover:bg-primary hover:text-white transition z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-4 rounded-full shadow-lg hover:bg-primary hover:text-white transition z-10"
               aria-label="Next testimonial"
             >
               <FaChevronRight size={24} />
@@ -753,7 +748,7 @@ function App() {
       </section>
 
       {/* Garantii Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -761,7 +756,7 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Garanție & Siguranță</h2>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Garanție & Siguranță</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -793,14 +788,14 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-accent to-white p-6 rounded-xl shadow-lg text-center hover-lift"
+                className="bg-gradient-to-br from-accent to-white dark:from-gray-700 dark:to-gray-800 p-6 rounded-xl shadow-lg text-center hover-lift"
               >
                 <div className="text-primary mb-4 flex justify-center">{item.icon}</div>
                 <div className="flex items-start gap-2 mb-2 justify-center">
                   <FaCheckCircle className="text-secondary mt-1 flex-shrink-0" />
-                  <h3 className="font-bold text-dark">{item.title}</h3>
+                  <h3 className="font-bold text-dark dark:text-white">{item.title}</h3>
                 </div>
-                <p className="text-gray-600 text-sm">{item.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -808,7 +803,7 @@ function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -816,7 +811,7 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Întrebări Frecvente</h2>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Întrebări Frecvente</h2>
           </motion.div>
 
           <div className="max-w-3xl mx-auto space-y-4">
@@ -856,13 +851,13 @@ function App() {
               >
                 <button
                   onClick={() => setActiveFAQ(activeFAQ === index ? null : index)}
-                  className="w-full p-6 text-left flex justify-between items-center hover:bg-accent transition"
+                  className="w-full p-6 text-left flex justify-between items-center hover:bg-accent dark:hover:bg-gray-700 transition"
                 >
-                  <span className="font-bold text-dark pr-4">{faq.q}</span>
+                  <span className="font-bold text-dark dark:text-white pr-4">{faq.q}</span>
                   {activeFAQ === index ? <FaChevronUp className="text-primary flex-shrink-0" /> : <FaChevronDown className="text-primary flex-shrink-0" />}
                 </button>
                 {activeFAQ === index && (
-                  <div className="px-6 pb-6 text-gray-700">
+                  <div className="px-6 pb-6 text-gray-700 dark:text-gray-300">
                     {faq.a}
                   </div>
                 )}
@@ -881,8 +876,8 @@ function App() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-dark mb-4">Sfaturi & Articole Utile</h2>
-            <p className="text-gray-600">Ghiduri practice pentru menținerea curățeniei</p>
+            <h2 className="text-4xl font-bold text-dark dark:text-white mb-4">Sfaturi & Articole Utile</h2>
+            <p className="text-gray-600 dark:text-gray-300">Ghiduri practice pentru menținerea curățeniei</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -909,12 +904,12 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-accent rounded-xl overflow-hidden shadow-lg hover-lift"
+                className="bg-accent dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover-lift"
               >
                 <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-dark mb-3">{article.title}</h3>
-                  <p className="text-gray-600 mb-4">{article.description}</p>
+                  <h3 className="text-xl font-bold text-dark dark:text-white mb-3">{article.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{article.description}</p>
                   <a href="#contact" className="text-primary font-semibold hover:underline inline-flex items-center gap-2">
                     Citește mai mult →
                   </a>
@@ -992,7 +987,7 @@ function App() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-accent transition shadow-lg"
+                  className="w-full bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-accent dark:hover:bg-gray-100 transition shadow-lg"
                 >
                   Trimite Cererea
                 </button>
